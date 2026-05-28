@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Недвижимость</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <h1>Главная страница недвижимости</h1>
+      <p>Найдите квартиру мечты. Используйте поиск по названию объекта.</p>
+      <div class="header-actions">
+        <div class="search-box">
+          <label for="searchInput">Поиск по названию</label>
+          <input id="searchInput" type="search" placeholder="Введите название квартиры" />
+        </div>
+        <button id="createButton" class="button button--secondary" type="button">Создать объявление</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="object-count" id="objectCount">Найдено 0 объектов</div>
+      <div class="cards-grid" id="propertyList"></div>
+    </section>
+  </main>
+  <div class="modal" id="createModal" aria-hidden="true">
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__header">
+        <h2 id="modalTitle">Новое объявление</h2>
+        <button class="modal__close" type="button" id="modalClose">×</button>
+      </div>
+      <form id="createForm" class="create-form">
+        <label>
+          Название
+          <input name="title" type="text" required placeholder="Название квартиры" />
+        </label>
+        <label>
+          Локация
+          <input name="location" type="text" placeholder="Город, район" />
+        </label>
+        <label>
+          Цена
+          <input name="price" type="number" min="0" required placeholder="Цена в рублях" />
+        </label>
+        <label>
+          Площадь (м²)
+          <input name="area" type="number" min="0" placeholder="Площадь" />
+        </label>
+        <label>
+          Количество комнат
+          <input name="rooms" type="number" min="0" placeholder="Комнат" />
+        </label>
+        <label>
+          Фото (URL)
+          <input name="image" type="url" placeholder="https://..." />
+        </label>
+        <label>
+          Описание
+          <textarea name="description" rows="4" placeholder="Краткое описание"></textarea>
+        </label>
+        <div class="form-row">
+          <button class="button" type="submit">Сохранить</button>
+          <button class="button button--ghost" type="button" id="cancelCreate">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
